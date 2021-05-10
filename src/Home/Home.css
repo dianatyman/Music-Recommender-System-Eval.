@@ -1,0 +1,14 @@
+.Home{
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+h1{
+    font-weight: 600;
+    font-size: 54px;
+}
+
+p{
+  padding: 50px;
+  margin: 50px;
+}
