@@ -130,15 +130,15 @@ class App extends Component {
 	        <br />
 	        <br />
 	        <h1 style={{'fontSize': '25px','marginTop': '5px', 'textAlign': 'left', 'border': '3px solid #9DC183', 'padding': '10px'}}>Content Based Recommendations for {this.state.userName} </h1>
-	        <p>Content Based recommendations uses item features to recommend other songs similar to what the you as a user currently like, based on your previous actions or explicit feedback </p>
-	        <p>You can click on the name of the song to hear a snippet of it, unfortunately not all songs may have snippets...</p>
+	        <h4>Content Based recommendations uses item features to recommend other songs similar to what the you as a user currently like, based on your previous actions or explicit feedback </h4>
+	        <h4>You can click on the name of the song to hear a snippet of it, unfortunately not all songs may have snippets...</h4>
 	        <CBased songID={this.state.songID.toString()} token={this.state.token} artistID={this.state.artistID.toString()} genres={this.state.genres.toString()}/>
 	        
 	        <br />
 	        <br />
 	        <h1 style={{'fontSize': '25px','marginTop': '5px', 'textAlign': 'left', 'border': '3px solid #9DC183', 'padding': '10px'}}>Collaborative Filtering Recommendations for {this.state.userName} </h1>
-	        <p>Collaborative Filtering recommendations are based from a method of making automatic predictions (filtering) about the interests of a user by collecting preferences from many users, in this case your Spotify friends.</p>
-	        <p>You can click on the name of the song to hear a snippet of it, unfortunately not all songs may have snippets...</p>
+	        <h4>Collaborative Filtering recommendations are based from a method of making automatic predictions (filtering) about the interests of a user by collecting preferences from many users, in this case your Spotify friends.</h4>
+	        <h4>You can click on the name of the song to hear a snippet of it, unfortunately not all songs may have snippets...</h4>
 	        <CFiltering userName={this.state.userName} token={this.state.token} artistID={this.state.artistID.toString()} genres={this.state.genres.toString()} />
 
 	        </div> : <button onClick={() => {
