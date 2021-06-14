@@ -99,8 +99,8 @@ class CBased extends Component{
           .then(data => {
             if(!data){
               return;
-            }else{
-              console.log(data)
+            }
+              
               data.tracks.map(song =>{
                 recom_songs.push(song.name)                       // song name
                 recom_songs_audio.push(song.preview_url)          // audio sample of song
@@ -114,7 +114,7 @@ class CBased extends Component{
                 songs_audio: recom_songs_audio,
                 artName: artistName
               })
-            }
+            
           });
     });
   }
