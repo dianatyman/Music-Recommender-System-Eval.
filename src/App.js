@@ -26,8 +26,6 @@ class App extends Component {
     	const url = new URL(window.location.href);
 		const accessToken = url.searchParams.get('access_token');
 
-		console.log(accessToken);
-
 		if(!accessToken){
     		return;
     	}else{
@@ -48,7 +46,7 @@ class App extends Component {
 	    	// Fetch User's most listened/top songs + songs id's
 		    fetch('https://api.spotify.com/v1/me/top/tracks?limit=' + this.state.limit, {
 		      	method: 'GET',
-		      	headers: {'Authorization': 'Bearer ' + accessToken, 'Content-Type': 'application/json'}
+		      	headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + accessToken}
 		    }).then(response => response.json())
 		    .then(data => {
 		    	if(!data){
@@ -61,7 +59,7 @@ class App extends Component {
 		        	};
 		        	return id;
 		    	})
-
+		    	console.log(ids[0])
 		    	this.setState({
 		    		songID: ids[0]
 		    	})
@@ -70,7 +68,7 @@ class App extends Component {
 		    // Fetch User's top 3 artists -- nedeed for spotify's api content based recommendations
 		    fetch('https://api.spotify.com/v1/me/top/artists?limit=3', {
 		      	method: 'GET',
-		      	headers: {'Authorization': 'Bearer ' + accessToken, 'Content-Type': 'application/json'}
+		      	headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + accessToken}
 		    }).then(response => response.json())
 		    .then(data => {
 		    	if(!data){
