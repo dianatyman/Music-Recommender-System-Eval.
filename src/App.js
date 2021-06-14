@@ -26,6 +26,8 @@ class App extends Component {
     	const url = new URL(window.location.href);
 		const accessToken = url.searchParams.get('access_token');
 
+		console.log(accessToken);
+
 		if(!accessToken){
     		return;
     	}else{
