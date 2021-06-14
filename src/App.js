@@ -51,6 +51,9 @@ class App extends Component {
 		      	headers: {'Authorization': 'Bearer ' + accessToken}
 		    }).then(response => response.json())
 		    .then(data => {
+		    	if(!data){
+		    		return;
+		    	}
 		    	let id = []
 		    	let ids = data.items.map(datas => {
 		    		if (!id.includes(datas.id)){
@@ -70,7 +73,7 @@ class App extends Component {
 		      	headers: {'Authorization': 'Bearer ' + accessToken}
 		    }).then(response => response.json())
 		    .then(data => {
-		    	if(!data.items){
+		    	if(!data){
 		    		return;
 		    	}
 		    	let id = []
