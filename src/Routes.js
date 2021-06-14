@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 
 import CollabFiltering from "./CFiltering/CollabFiltering";
-import Home from "./Home/Home";
+import CBased from "./CBased/CBased";
 import history from './history';
 
 export default class Routes extends Component {
@@ -10,11 +10,14 @@ export default class Routes extends Component {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route path="/" exact component={Home} />
+                    <Route path="/CBased" component={CBased} />
                     <Route path="/CollabFiltering" component={CollabFiltering} />
+                    
                 </Switch>
             </Router>
         )
     }
 }
 
+// <Route path="/" exact component={Home} />
+// <Route path="/CBased" component={CBased} />
