@@ -42,13 +42,13 @@ class CBased extends Component{
       headers: {'Accept': 'application/json', 'Content-Type': 'application/json' , 'Authorization': 'Bearer ' + accessToken}
     }).then(response => response.json())
     .then(data => {
-      // if(!data.audio_features){
-      //     return;
-      //   }else{
+      if(!data.audio_features){
+          return;
+        }
           data.audio_features.map((audio, i) => {
-            // if(!audio){
-            //   return;
-            // }
+            if(!audio){
+              return;
+            }
             energy.push(Number(audio.energy))
             key.push(audio.key)
             loudness.push(audio.loudness)
