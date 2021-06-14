@@ -21,6 +21,8 @@ class CBased extends Component{
     let artistID = this.props.artistID
     let genres = this.props.genres
 
+    if (!accessToken)
+      return;
     // Get audio analysis features from the user's songs
     const energy = [];      //low level feature
     const key = [];         //high level feature

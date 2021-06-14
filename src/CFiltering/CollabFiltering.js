@@ -20,6 +20,9 @@ class CollabFiltering extends Component{
 		let artistID = this.props.artistID
     	let genres = this.props.genres
 
+    	if (!token)
+      		return;
+
 		const playID_Disc = []
 		const playID_collab = []
 
