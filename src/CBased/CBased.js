@@ -146,8 +146,8 @@ class CBased extends Component{
       }else{
 
         return(
-          <div className="CF">
-            <p>Sorry, unfortunately you do not have enough data to create the collaborative filtering recommendations.</p>
+          <div className="CB">
+            <p>The recommended songs are not loading...please recharge the web page, excuse the inconvenience.</p>
           </div>
         );
       }
