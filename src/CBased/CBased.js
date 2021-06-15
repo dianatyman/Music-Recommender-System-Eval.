@@ -97,9 +97,9 @@ class CBased extends Component{
               headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + accessToken}
           }).then(response => response.json())
           .then(data => {
-            if(!data){
+            if(!data.tracks){
               return;
-            }
+            }else{
               
               data.tracks.map(song =>{
                 recom_songs.push(song.name)                       // song name
@@ -114,7 +114,7 @@ class CBased extends Component{
                 songs_audio: recom_songs_audio,
                 artName: artistName
               })
-            
+            }
           });
     });
   }
