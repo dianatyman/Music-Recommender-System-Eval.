@@ -9,7 +9,8 @@ class CBased extends Component{
       songs:[],
       songs_audio:[],
       songs_img:[],
-      artName:[]
+      artName:[],
+      full: false
     }
   }
 
@@ -112,7 +113,8 @@ class CBased extends Component{
                 songs: recom_songs,
                 songs_img: recom_songs_img,
                 songs_audio: recom_songs_audio,
-                artName: artistName
+                artName: artistName,
+                full: true
               })
             }
           });
@@ -122,26 +124,33 @@ class CBased extends Component{
 
   render() {
 	   
-    return(
-      
-      <div className="CB">
-      {
-        Object.keys(this.state.songs).map(index =>{
-          return (
-            <ul>
-              <a href={this.state.songs_audio[index]} target={"_blank"} rel="noreferrer">
-              <img src={this.state.songs_img[index]} style={{width: '60px'}}/> {this.state.songs[index] + " - " + this.state.artName[index]} <br />
-              </a>
-            </ul>
-          )
-        })
+      if(this.state.full){
+        return(
+          
+          <div className="CB">
+          {
+            Object.keys(this.state.songs).map(index =>{
+              return (
+                <ul>
+                  <a href={this.state.songs_audio[index]} target={"_blank"} rel="noreferrer">
+                  <img src={this.state.songs_img[index]} style={{width: '60px'}}/> {this.state.songs[index] + " - " + this.state.artName[index]} <br />
+                  </a>
+                </ul>
+              )
+            })
+          }
+          
+          </div>
+          
+        );
+      }else{
+
+        return(
+          <div className="CF">
+            <p>Sorry, unfortunately you do not have enough data to create the collaborative filtering recommendations.</p>
+          </div>
+        );
       }
-      
-      </div>
-      
-    );
-
-
   }
     
 }
