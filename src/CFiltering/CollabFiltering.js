@@ -162,7 +162,7 @@ class CollabFiltering extends Component{
 							                    "&target_energy=" + avg_energy + "&target_instrumentalness=" + avg_instr + "&target_key=" + avg_key + "&target_liveness=" + avg_liveness +
 							                    "&target_loudness=" + avg_loud + "&target_tempo=" + avg_tempo + "&target_valence=" + avg_val, {
 							              method: 'GET',
-							              headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + token, 'Access-Control-Allow-Origin': 'origin-list'}
+							              headers: {'Authorization': 'Bearer ' + token}
 							          }).then(response => response.json())
 							          .then(data => {
 							            if(!data){
