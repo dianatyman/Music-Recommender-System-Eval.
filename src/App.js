@@ -46,7 +46,7 @@ class App extends Component {
 	    	// Fetch User's most listened/top songs + songs id's
 		    fetch('https://api.spotify.com/v1/me/top/tracks?limit=' + this.state.limit, {
 		      	method: 'GET',
-		      	headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + accessToken}
+		      	headers: {'Authorization': 'Bearer ' + accessToken}
 		    }).then(response => response.json())
 		    .then(data => {
 		    	if(!data){
@@ -69,7 +69,7 @@ class App extends Component {
 		    // Fetch User's top 3 artists -- nedeed for spotify's api content based recommendations
 		    fetch('https://api.spotify.com/v1/me/top/artists?limit=3', {
 		      	method: 'GET',
-		      	headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + accessToken}
+		      	headers: {'Authorization': 'Bearer ' + accessToken}
 		    }).then(response => response.json())
 		    .then(data => {
 		    	if(!data){

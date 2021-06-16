@@ -108,7 +108,7 @@ class CollabFiltering extends Component{
 
 		    				fetch('https://api.spotify.com/v1/audio-features?ids=' + songIDS.toString(), {
 							      method: 'GET',
-							      headers: {'Accept': 'application/json', 'Content-Type': 'application/json' , 'Authorization': 'Bearer ' + token}
+							      headers: {'Authorization': 'Bearer ' + token}
 							    }).then(response => response.json())
 							    .then(data => {
 							      // if(!data.audio_features){
