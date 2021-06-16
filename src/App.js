@@ -52,14 +52,15 @@ class App extends Component {
 		    	if(!data){
 		    		return;
 		    	}
-		    	let id = []
+		    	let id = [];
+		    	
 		    	let ids = data.items.map(datas => {
 		    		if (!id.includes(datas.id)){
 	      				id.push(datas.id)
 		        	};
+		        	
 		        	return id;
 		    	})
-		    	
 		    	this.setState({
 		    		songID: ids[0]
 		    	})
@@ -74,12 +75,14 @@ class App extends Component {
 		    	if(!data){
 		    		return;
 		    	}
+		    	
 		    	let id = []
 		    	let gen = []
 		    	let ids = data.items.map(datas => {
 		    		if (!id.includes(datas.id)){
 	      				id.push(datas.id)
 		        	};
+
 		        	return id;
 		    	})
 

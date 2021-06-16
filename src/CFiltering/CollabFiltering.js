@@ -152,8 +152,9 @@ class CollabFiltering extends Component{
 							            });
 							          };
 							          
-							          const userGenre = getMax(wordCounts).toString();
-							          const song_seed = songIDS; //get user's top song for recommendation seed
+							          const userGenreMAX = getMax(wordCounts) 			// get most popular genre among user's song
+          							  const userGenre = userGenreMAX[0].toString();
+							          const song_seed = songIDS; 						//get user's top song for recommendation seed
 							          
 							          // Get 20 recommendations of content based for the user
 							          fetch("https://api.spotify.com/v1/recommendations?limit=20&market=ES&seed_artists=" + artistID + "&seed_genres=" + userGenre +
@@ -161,7 +162,7 @@ class CollabFiltering extends Component{
 							                    "&target_energy=" + avg_energy + "&target_instrumentalness=" + avg_instr + "&target_key=" + avg_key + "&target_liveness=" + avg_liveness +
 							                    "&target_loudness=" + avg_loud + "&target_tempo=" + avg_tempo + "&target_valence=" + avg_val, {
 							              method: 'GET',
-							              headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + token}
+							              headers: {'Accept': 'application/json', 'Content-Type': 'application/json' ,'Authorization': 'Bearer ' + token, 'Access-Control-Allow-Origin': 'origin-list'}
 							          }).then(response => response.json())
 							          .then(data => {
 							            if(!data){
