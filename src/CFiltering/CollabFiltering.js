@@ -23,7 +23,6 @@ class CollabFiltering extends Component{
     	if (!token)
       		return;
 
-		const playID_Disc = []
 		const playID_collab = []
 
 		const recom_songs = [];
@@ -37,46 +36,14 @@ class CollabFiltering extends Component{
 		    }).then(response => response.json())
 		    .then(data => {
 		    	data.items.map(playlist => {
-		    		if(playlist.name == "Descubrimiento semanal" || playlist.name == "Discover Weekly"){
-		    			playID_Disc.push(playlist.id)
-		    		}
-
 		    		if(playlist.collaborative){
 		    			playID_collab.push(playlist.id)
 		    		}
 		    		
 		    	});
 
-		    	// Get Discover Weekly Collab Filtering Recomm's
-		    	if(playID_Disc.length > 0){
-		    		playID_Disc.map(playlist => {
-		    			fetch("https://api.spotify.com/v1/playlists/" + playlist + "/tracks?market=ES&limit=20", {
-		    				method: 'GET',
-		      				headers: {'Authorization': 'Bearer ' + token}
-		    			}).then(response => response.json())
-		    			.then(data => {
-		    				if(!data){
-		    					return;
-		    				}else{
-			    				data.items.map(dts =>{
-			    					recom_songs.push(dts.track.name)                       // song name
-					                recom_songs_audio.push(dts.track.preview_url)          // audio sample of song
-					                recom_songs_img.push(dts.track.album.images[2].url)    // small album image
-					                artistName.push(dts.track.artists[0].name)
-			    				})
-
-			    				this.setState({
-		    						song_name: recom_songs,
-		    						album_img: recom_songs_img,
-		    						audio: recom_songs_audio,
-		    						artist: artistName,
-		    						full: true
-		    					})
-			    			}
-			    			
-		    			})
-		    		})
-		    	}else if(playID_collab.length > 0){
+		    	// Get Collaborative Playlists with Collab Filtering Recomm's
+		    	if(playID_collab.length > 0){
 
 		    		const songIDS = []
 
